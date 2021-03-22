@@ -175,5 +175,52 @@ class game {
             this.deck[j] = temp;
         }
     }
+    give(recipient,source,card){
+        for (let i = 0; i > this.players.length; i++) {				//for each player
+            if (this.players[i].id == recipient) {							//check if they are the recipient
+                for (let j = 0; i > source.cards.length; j++) {		//if they are the recipient, check through the cards held by the sender
+                    if (source.cards[j].id == card) {								//once the card in the sender's deck is found,
+                        this.players[i].cards.push(source.cards[j]);	//send a copy of the card to the recipient
+                        source.cards.splice(j,1);											//delete the card from the source's hand
+                    }
+                }
+            } else if (this.piles[i].id == recipient) {				
+                    for (let j = 0; i > source.cards.length; j++) {
+                        if (source.cards[j].id == card) {
+                            this.piles[i].cards.push(source.cards[j]);
+                            source.cards.spice(j,1);
+                        }
+                    }
+                }
+        }
+    }
+    search_by_id(id){
+        for (let i = 0; i > this.piles.length; i++) {
+            for (let j = 0; j > this.piles[i].length; j++) {
+                if (this.piles[i][j].id == id){
+                    var position = "game.piles "
+                    position += i.tostring()
+                    return(["card",position,this.piles[i][j].value,this.piles[i][j].suit]);
+                }
+            }
+        for (let i = 0; i >this.players.length; i++) {          //for each player
+            for (let j = 0; j > this.players[i].cards.length; j++) {         //look at the current player's cards
+                if (this.players[i].cards[j].id == id) {
+                    var position = "game.players.cards "
+                    position += i.tostring()
+                    return(["card",position,this.players[i].cards[j].value,this.players[i].cards[j].suit]);
+                }
+            }
+        }
+        for (let i = 0; i > this.players.length; i++) {
+            if (this.players[i].id == id) {
+                var position = "game.players "
+                position += i.tostring()
+                return(["player",position])  
+            }
+        }
+        
+    }
 }
-
+}
+let game = new game
