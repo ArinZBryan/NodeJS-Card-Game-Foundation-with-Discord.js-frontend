@@ -223,4 +223,11 @@ class game {
     }
 }
 }
+class pile {
+	constructor(cards,id,owner){
+		this.cards = cards
+		this.id = id
+		this.owner = owner
+	}
+}
 let game = new game
