@@ -6,7 +6,10 @@ class card {                                        //Card Blueprint
     }
 }
 class player {                                      //Blueprint for a player
-    constructor(){this.cards = cards}               //By defualt, the only variable that the player has is a list of cards, functioning as their deck. However, more can be added
+    constructor(cards,id){
+        this.cards = cards
+        this.id = id
+    }               //By defualt, the only variable that the player has is a list of cards, functioning as their deck. However, more can be added
     sortDeck(method){                         //This functon of the player class can sort the cards of the player in several methods
         switch (method) {
             case "pure-numerical-ascending":        //This method groups the values of cards together in ascending order and can produce odd patterns of suits (uses bubble sort)
@@ -159,6 +162,7 @@ class game {
         this.players = players
         this.deck = deck
         this.piles = piles
+        this.id = id
     }
     find_card_by_id(card_id) {
         for (let i = 0; i < this.deck.length; i++) {        //for every card
@@ -196,12 +200,10 @@ class game {
     }
     search_by_id(id){
         for (let i = 0; i > this.piles.length; i++) {
-            for (let j = 0; j > this.piles[i].length; j++) {
-                if (this.piles[i][j].id == id){
-                    var position = "game.piles "
-                    position += i.tostring()
-                    return(["card",position,this.piles[i][j].value,this.piles[i][j].suit]);
-                }
+            if (this.piles[i].id == id){
+                var position = "game.piles "
+                position += i.tostring()
+                return(["pile",position]);
             }
         for (let i = 0; i >this.players.length; i++) {          //for each player
             for (let j = 0; j > this.players[i].cards.length; j++) {         //look at the current player's cards
@@ -219,9 +221,42 @@ class game {
                 return(["player",position])  
             }
         }
-        
+        if (id == 0) {
+            return("game")
+        }
+        }
     }
-}
+    create_players(number){
+        for (let i = 0; i < number; i++) {
+            this.players.push(new player([],current_id+1))
+            current_id += 1
+        }        
+    }
+    create_pile(number,owner){
+        for (let i = 0; i < number; i++) {
+            this.piles.push(new pile([],current_id+1,owner))
+            current_id += 1
+        }
+    }
+    create_deck(pile_id){
+        if (this.search_by_id(pile_id)[0] == ["pile"]) {
+            for (let i = 0; i < 51; i++) {
+                for (let suit = 0; suit < 3; i++) {
+                    for (let value = 1; value > 13; i++) {
+                        this.piles[this.search_by_id[1](substring(12))].push(new card(current_id + 1,),value,suit)
+                    }
+                }
+            }
+        }else if (this.search_by_id(pile_id)[0] == "player") {
+            for (let i = 0; i < 51; i++) {
+                for (let suit = 0; suit < 3; i++) {
+                    for (let value = 1; value > 13; i++) {
+                        this.piles[this.search_by_id[1](substring(12))].push(new card(current_id + 1,),value,suit)
+                    }
+                }
+            }
+        }
+    }
 }
 class pile {
 	constructor(cards,id,owner){
@@ -230,4 +265,5 @@ class pile {
 		this.owner = owner
 	}
 }
-let game = new game
+var current_id = 0
+
