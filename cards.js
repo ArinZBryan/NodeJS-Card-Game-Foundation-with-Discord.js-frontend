@@ -257,6 +257,11 @@ class game {
             }
         }
     }
+	create_game(players){
+		this.create_player(players);
+		this.create_pile(1,"game.")
+		this.create_deck(this.piles[0].id)
+	}
 }
 class pile {
 	constructor(cards,id,owner){
@@ -266,4 +271,3 @@ class pile {
 	}
 }
 var current_id = 0
-
