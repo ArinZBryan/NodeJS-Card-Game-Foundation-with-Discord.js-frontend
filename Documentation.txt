@@ -3,3 +3,6 @@ To set up a game:
   game.new_player(number of players wanted)
   game.new_pile(1)
   game.new_deck(game.piles[0].id)
+
+to sort cards
+  game.players[game.find_by_id(player's id)].sort
