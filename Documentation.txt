@@ -1,0 +1,5 @@
+To set up a game:
+  game = new game()
+  game.new_player(number of players wanted)
+  game.new_pile(1)
+  game.new_deck(game.piles[0].id)
