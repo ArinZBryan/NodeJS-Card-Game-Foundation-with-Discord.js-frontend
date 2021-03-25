@@ -1,39 +1,3 @@
-
-
-
-                break;
-        }
-
-    }
-    card_comp(max_val,max_suit){                       //cards = cards to search, max_val = [maximum value 1 (defualt = value),maximum value 2 (default = suit),...
-        var value_quants = [this.this.cards.length];          //return value [total cards,1s,2s,3s,4s,5s,6s,7s,8s,9s,10s,11s,12s,13s,suit1s,suit2s,suit3s,suit4s]
-        for (let i = 0; i < this.this.cards.length; i++) {                 //for each card,
-            for (let j = 1; j < max_val; j++){this.this.cards[i].value == j ? value_quants[j] += 1 : ""};      //check what its value is and increment value_quants respective value 
-            for (let index = 0; index < max_suit; j++){this.this.cards[i].suit == index ? value_quants[index+13] : ""}
-        }
-        return value_quants
-    }
-    value_comp(search_term,search_type) {         //cards = cards to search, search_term = thing to count
-        var count = 0
-        var return_val = []
-        for (let i = 0; i < this.cards.length; i++){
-            switch (search_type) {
-                case "value":
-                    if (this.cards[i].value == search_term) {
-                        count += 1
-                        return_val.push(this.cards[i])
-                    }    
-                    break;
-                case "suit":
-                    if (this.cards[i].suit == search_term) {
-                        count += 1
-                        return_val.push(this.cards[i])
-                    }
-                    break;
-            }               
-        }     
-    }
-}
 class game {
     constructor(players,deck,piles){
         this.players = players
@@ -141,3 +105,4 @@ class game {
 	this.create_deck(this.piles[0].id)
     }
 }
+module.exports = game
