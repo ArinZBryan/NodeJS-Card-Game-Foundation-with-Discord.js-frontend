@@ -1,11 +1,11 @@
-class card {                                        //Card Blueprint
+exports.class card {                                        //Card Blueprint
     constructor(id,value,suit){
         this.id = id;                               //Each card has an integer id counting from 0 assigned to it when first created
         this.value = value;                         //Each card has a value. This is an integer, and thus can be interpreted with 'if's to make a text value
         this.suit = suit;                           //Each card has a suit. This is also an int, and functions identicallly to value.
     }
 }
-class player {                                      //Blueprint for a player
+exports.class player {                                      //Blueprint for a player
     constructor(cards,id){
         this.cards = cards
         this.id = id
@@ -157,12 +157,13 @@ class player {                                      //Blueprint for a player
         }     
     }
 }
-class game {
+exports.class game {
     constructor(players,deck,piles){
         this.players = players
         this.deck = deck
         this.piles = piles
         this.id = id
+	this.current_id = current_id
     }
     find_card_by_id(card_id) {
         for (let i = 0; i < this.deck.length; i++) {        //for every card
@@ -228,14 +229,14 @@ class game {
     }
     create_players(number){
         for (let i = 0; i < number; i++) {
-            this.players.push(new player([],current_id+1))
-            current_id += 1
+            this.players.push(new player([],this.current_id+1))
+            this.current_id += 1
         }        
     }
     create_pile(number,owner){
         for (let i = 0; i < number; i++) {
-            this.piles.push(new pile([],current_id+1,owner))
-            current_id += 1
+            this.piles.push(new pile([],this.current_id+1,owner))
+            this.current_id += 1
         }
     }
     create_deck(pile_id){
@@ -243,7 +244,7 @@ class game {
             for (let i = 0; i < 51; i++) {
                 for (let suit = 0; suit < 3; i++) {
                     for (let value = 1; value > 13; i++) {
-                        this.piles[this.search_by_id[1](substring(12))].push(new card(current_id + 1,),value,suit)
+                        this.piles[this.search_by_id[1](substring(12))].push(new card(this.current_id + 1,),value,suit)
                     }
                 }
             }
@@ -263,11 +264,10 @@ class game {
 		this.create_deck(this.piles[0].id)
 	}
 }
-class pile {
+exports.class pile {
 	constructor(cards,id,owner){
 		this.cards = cards
 		this.id = id
 		this.owner = owner
 	}
 }
-var current_id = 0
