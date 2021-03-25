@@ -1,11 +1,11 @@
-exports.class card {                                        //Card Blueprint
+class card {                                        //Card Blueprint
     constructor(id,value,suit){
         this.id = id;                               //Each card has an integer id counting from 0 assigned to it when first created
         this.value = value;                         //Each card has a value. This is an integer, and thus can be interpreted with 'if's to make a text value
         this.suit = suit;                           //Each card has a suit. This is also an int, and functions identicallly to value.
     }
 }
-exports.class player {                                      //Blueprint for a player
+class player {                                      //Blueprint for a player
     constructor(cards,id){
         this.cards = cards
         this.id = id
@@ -157,7 +157,7 @@ exports.class player {                                      //Blueprint for a pl
         }     
     }
 }
-exports.class game {
+class game {
     constructor(players,deck,piles){
         this.players = players
         this.deck = deck
@@ -262,12 +262,5 @@ exports.class game {
 		this.create_player(players);
 		this.create_pile(1,"game.")
 		this.create_deck(this.piles[0].id)
-	}
-}
-exports.class pile {
-	constructor(cards,id,owner){
-		this.cards = cards
-		this.id = id
-		this.owner = owner
 	}
 }
