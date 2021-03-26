@@ -149,3 +149,4 @@ class player {                                      //Blueprint for a player
         }     
     }
 }
+module.exports(player);
