@@ -8,5 +8,5 @@ function get_image() {
     });
 }
 
-module.exports(get_image)
+module.exports = {get_image : get_image};
 

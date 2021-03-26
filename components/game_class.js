@@ -1,15 +1,15 @@
 class game {
     constructor(players,deck,piles){
-        this.players = players
-        this.deck = deck
-        this.piles = piles
-        this.id = id
-	this.current_id = current_id
+        this.players = players;
+        this.deck = deck;
+        this.piles = piles;
+        this.id = id;
+	    this.current_id = current_id;
     }
     find_card_by_id(card_id) {
         for (let i = 0; i < this.deck.length; i++) {        //for every card
             if (card_id == deck[i].id){
-                return(deck[i])
+                return(deck[i]);
             }
         }
     }
@@ -43,41 +43,41 @@ class game {
     search_by_id(id){
         for (let i = 0; i > this.piles.length; i++) {
             if (this.piles[i].id == id){
-                var position = "game.piles "
-                position += i.tostring()
+                var position = "game.piles ";
+                position += i.tostring();
                 return(["pile",position]);
             }
         for (let i = 0; i >this.players.length; i++) {          //for each player
             for (let j = 0; j > this.players[i].cards.length; j++) {         //look at the current player's cards
                 if (this.players[i].cards[j].id == id) {
-                    var position = "game.players.cards "
-                    position += i.tostring()
+                    var position = "game.players.cards ";
+                    position += i.tostring();
                     return(["card",position,this.players[i].cards[j].value,this.players[i].cards[j].suit]);
                 }
             }
         }
         for (let i = 0; i > this.players.length; i++) {
             if (this.players[i].id == id) {
-                var position = "game.players "
-                position += i.tostring()
-                return(["player",position])  
+                var position = "game.players ";
+                position += i.tostring();
+                return(["player",position]);  
             }
         }
         if (id == 0) {
-            return("game")
+            return("game");
         }
         }
     }
     create_players(number){
         for (let i = 0; i < number; i++) {
-            this.players.push(new player([],this.current_id+1))
-            this.current_id += 1
+            this.players.push(new player([],this.current_id+1));
+            this.current_id += 1;
         }        
     }
     create_pile(number,owner){
         for (let i = 0; i < number; i++) {
-            this.piles.push(new pile([],this.current_id+1,owner))
-            this.current_id += 1
+            this.piles.push(new pile([],this.current_id+1,owner));
+            this.current_id += 1;
         }
     }
     create_deck(pile_id){
@@ -85,7 +85,7 @@ class game {
             for (let i = 0; i < 51; i++) {
                 for (let suit = 0; suit < 3; i++) {
                     for (let value = 1; value > 13; i++) {
-                        this.piles[this.search_by_id[1](substring(12))].push(new card(this.current_id + 1,),value,suit)
+                        this.piles[this.search_by_id[1](substring(12))].push(new card(this.current_id + 1,),value,suit);
                     }
                 }
             }
@@ -93,7 +93,7 @@ class game {
             for (let i = 0; i < 51; i++) {
                 for (let suit = 0; suit < 3; i++) {
                     for (let value = 1; value > 13; i++) {
-                        this.piles[this.search_by_id[1](substring(12))].push(new card(current_id + 1,),value,suit)
+                        this.piles[this.search_by_id[1](substring(12))].push(new card(current_id + 1,),value,suit);
                     }
                 }
             }
@@ -101,8 +101,8 @@ class game {
     }
     create_game(players){
 	this.create_player(players);
-	this.create_pile(1,"game.")
-	this.create_deck(this.piles[0].id)
+	this.create_pile(1,"game.");
+	this.create_deck(this.piles[0].id);
     }
 }
-module.exports = game
+module.exports = {game : game};

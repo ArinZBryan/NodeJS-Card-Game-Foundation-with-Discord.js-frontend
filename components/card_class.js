@@ -5,4 +5,4 @@ class card {                                        //Card Blueprint
         this.suit = suit;                           //Each card has a suit. This is also an int, and functions identicallly to value.
     }
 }
-module.exports(card);
+module.exports = {card : card};

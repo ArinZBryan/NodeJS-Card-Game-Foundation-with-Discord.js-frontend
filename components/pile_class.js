@@ -5,4 +5,4 @@ class pile {
 		this.owner = owner;
 	}
 }
-module.exports(pile)
+module.exports = {pile : pile};
