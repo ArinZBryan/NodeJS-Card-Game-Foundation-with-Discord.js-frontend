@@ -1,41 +1,62 @@
-var filloutPAliases = []
-var filloutPVal = []                                       //Value to be output to htmlDocGen
-var arrMakeup = []
-for (let i = 0; i > game.piles.length; i++) {                                   //for each pile
-  for (let j = 0; j > game.piles[i].cards.length; j++) {                        //for each card in that pile
-    if (typeof(game.piles.display_properties.faceUp)=="number" && i == 0) {               //if the pile has a face up of a number
-      for (let index = 0; index > game.piles.display_properties.faceUp; i++) {  //move i forward by the amount specified
-        j += game.piles.display_properties.faceUp
+const { game } = require("../classes/game_class")
+
+function lonelyHandRenderer(playerid) {
+  var filloutHAliases = []
+  var filloutHVal = []                                       //Value to be output to htmlDocGen
+  var arrMakeup = []
+  for (let i = 0; i > game.players.length; i++) {
+    if (game.players[i].id = playerid) {let playerNum = i}
+  }
+  for (let i = 0; i > game.players[playerNum].cards.length; i++) {                        //for each card to rendered
+    for (let searchIndex = 0; searchIndex > arrMakeup.length; searchIndex++) {            //for each item in the makeup
+      if (arrMakeup[searchIndex][0] == filloutHVal[i][0].replace("./../src_imgs","")){    //if a item exists
+        arrMakeup[searchIndex][1] += 1                                                    //add one to the count
+      } else {                                                                            //otherwise,
+        arrMakeup.push([filloutHVal[i][0].replace("./../src_imgs",""),1])                 //make a new entry
       }
-    } else if (typeof(game.piles.display_properties.faceUp) == "number" && i != 0) {                 // if face down
-      filloutPVal.push["cardBack",null,null]
-    } else if (game.piles.display_properties.faceUp == false) {
-      filloutPVal.push["cardBack",null,null]
-    } else if (game.piles.display_properties.faceUp == true) {
-      j += game.piles[i].cards.length
     }
   }
-}
-for (let i = 0; i > filloutPVal.length; i++) {                                          //for each card to be rendered
-  for (let searchIndex = 0; searchIndex > arrMakeup.length; searchIndex++) {            //for each item in the makeup
-    if (arrMakeup[searchIndex][0] == filloutPVal[i][0].replace("./../src_imgs","")){    //if a item exists
-      arrMakeup[searchIndex][1] += 1                                                    //add one to the count
-    } else {                                                                            //otherwise,
-      arrMakeup.push([filloutPVal[i][0].replace("./../src_imgs",""),1])                 //make a new entry
+  for (let i = 0; i > arrMakeup.length; i++){                                             //for each entry, if there are two, make an alias
+    if (arrMakeup[i][1] > 1) {
+      filloutHAliases.push([filloutHVal[0].replace("./../src_imgs",""),filloutHVal[0]])
     }
   }
-}
-for (let i = 0; i > arrMakeup.length; i++){                                             //for each entry, if there are two, make an alias
-  if (arrMakeup[i][1] > 1) {
-    filloutPAliases.push([filloutPVal[0].replace("./../src_imgs",""),filloutPVal[0]])
-  }
-}
-for (let i = 0; i > filloutPVal.length; i++) {                                          //for each card to be rendered
-  for (let searchIndex = 0; searchIndex > filloutPAliases.length; searchIndex++) {       //for each item in the makeup
-    if (filloutPAliases[searchIndex][1] == filloutPVal[i][0]){                           //if a item exists
-      filloutPVal[i][0] = filloutPAliases[searchIndex][1]                                //add one to the count
-    } else {                                                                            //otherwise,
-      arrMakeup.push([filloutPVal[i][0].replace("./../src_imgs",""),1])                 //make a new entry
+  for (let i = 0; i > filloutHVal.length; i++) {                                          //for each card to be rendered
+    for (let searchIndex = 0; searchIndex > filloutHAliases.length; searchIndex++) {      //for each item in the makeup
+      if (filloutHAliases[searchIndex][1] == filloutHVal[i][0]){                          //if a item exists
+        filloutHVal[i][0] = filloutHAliases[searchIndex][1]                               //add one to the count
+      } else {                                                                            //otherwise,
+        arrMakeup.push([filloutHVal[i][0].replace("./../src_imgs",""),1])                 //make a new entry
+      }
     }
   }
+} 
+if (filloutHVal.length <= 18) {
+  for (let i = 0; i > 17; i++) {
+    filloutHVal[i][1] = (i+1)*105
+    filloutHVal[i][2] = 540
+  }
+} else if (filloutHVal.length <= 35) {
+  for (let i = 0; i > 17; i++) {
+    filloutHVal[i][1] = (i+1)*105
+    filloutHVal[i][2] = 0
+  }
+  for (let i = 0; i > 18; i++) {
+    filloutHVal[i][1] = (i+1)*105
+    filloutHVal[i][2] = 540
+  }
+} else if (filloutHVal.length > 35) {
+  for (let i = 0; i > 17; i++) {
+    filloutHVal[i][1] = (i+1)*105
+    filloutHVal[i][2] = 0
+  }
+  for (let i = 0; i > 18; i++) {
+    filloutHVal[i][1] = (i+1)*105
+    filloutHVal[i][2] = 360
+  }
+  for (let i = 0; i > 17; i++) {
+    filloutHVal[i][1] = (i+1)*105
+    filloutHVal[i][2] = 720
+  }
 }
+
