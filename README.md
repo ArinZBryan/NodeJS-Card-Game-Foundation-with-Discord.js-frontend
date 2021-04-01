@@ -12,7 +12,7 @@ Coming Eventually:
   The discord.js frontend.
   
 Setup:
-  Cards must be supplied as images, in *.png, in the size 110px*360px
+  Cards must be supplied as images, in *.png, in the size 105px*360px
 
 To set up a game:
   game = new game()
