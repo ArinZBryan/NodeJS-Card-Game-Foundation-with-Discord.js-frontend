@@ -3,8 +3,9 @@ class game {
         this.players = players;
         this.deck = deck;
         this.piles = piles;
-        this.id = id;
+        this.id = 0;
 	    this.current_id = current_id;
+        this.render_calls = []
     }
     find_card_by_id(card_id) {
         for (let i = 0; i < this.deck.length; i++) {        //for every card
@@ -103,6 +104,15 @@ class game {
 	this.create_player(players);
 	this.create_pile(1,"game.");
 	this.create_deck(this.piles[0].id);
+    }
+    call_for_render(render_owner) {
+        if ()
+    }
+}
+class renderInfo {
+    constructor(callID,callData) {
+        this.callID = callID,
+        this.callData = callData
     }
 }
 module.exports = {game : game};
