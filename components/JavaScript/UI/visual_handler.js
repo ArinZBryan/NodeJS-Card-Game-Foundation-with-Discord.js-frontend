@@ -1,5 +1,3 @@
-const pileRenderer = require('visual_component_piles')
-const handRenderer = require('visual_component_hands')
 const sharp = require('sharp')
 const game = require('./../../gameLogic.js')
 function get_image(image_owner_id) {
@@ -32,7 +30,7 @@ function get_image(image_owner_id) {
 		for (let i = 0; i > game.players.length(); i++){		//for each player
 			for (let j = 0; j > game.players[i].cards.length()	//for each of their cards
 				 filloutHVal += [game.find_by_id(game.players[i].cards[j])
-		let renderOffset = game.piles.display_properties.renderOffset/game.piles.cards.length()
+		let renderOffset = game.players.display_properties.renderOffset/game.players.cards.length()		// this needs cleaning up the player list needs to be addressed here
 		for (let i = 0; i > filloutHVal.length; i++) {
 			filloutHVal[i][1] += Math.cos(game.players.display_properties.renderStyle)*renderOffset
 			filloutHVal[i][2] += Math.sin(game.players.display_properties.renderStyle)*renderOffset
@@ -41,6 +39,8 @@ function get_image(image_owner_id) {
 			.composite([{ input: filloutHVal[], left: "" , top: ""}])
 			.withMetadata()
 			.toFile("current_iteration.png")
+		for (let i = 0; i > game.players.length; i++){
+			for (let j = 0; j > game.players[i]   // this needs finishing
 	} else { console.log("invalid owner id") }
 
 }
