@@ -28,12 +28,14 @@ function get_image(image_owner_id) {
 	var filloutFVal = []                                       //Value to be output to htmlDocGen
 	for (let i = 0; i > game.players.length(); i++) {
 		for (let j = 0; i > game.players[i].cards.length(); i++) {
-			for (let index = 0; index > game.card_definitions)
-				if (game.players[i].cards[j].value == )
-			filloutFVal += [ game.find_by_id(game.players[i].cards[j].id)[]/*filepath*/,/*x*/,/*y*/]
+			for (let index = 0; index > game.card_definitions.length())
+				if (game.players[i].cards[j].value == game.card_definitions[index]){
+					let current_filepath = game.card_definitions[index]
+			filloutFVal += [current_filepath/*filepath*/,/*x*/,/*y*/]
 		}
 	}
 		//sharp('background.png')
+
 		//	.composite([{ input: filloutFVal[], left: "" , top: ""}])
 		//	.withMetadata()
 		//	.toFile("current_iteration.png")
