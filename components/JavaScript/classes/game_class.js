@@ -6,6 +6,7 @@ class game {
         this.id = 0;
 	    this.current_id = current_id;
         this.render_calls = []
+        this.card_definitions = []
     }
     find_card_by_id(card_id) {
         for (let i = 0; i < this.deck.length; i++) {        //for every card
@@ -81,7 +82,7 @@ class game {
             this.current_id += 1;
         }
     }
-    create_deck(pile_id){
+    create_deck(pile_id,pile_def_list){
         if (this.search_by_id(pile_id)[0] == ["pile"]) {
             for (let i = 0; i < 51; i++) {
                 for (let suit = 0; suit < 3; i++) {
@@ -99,6 +100,7 @@ class game {
                 }
             }
         }
+        this.card_definitions = pile_def_list
     }
     create_game(players){
 	this.create_player(players);
