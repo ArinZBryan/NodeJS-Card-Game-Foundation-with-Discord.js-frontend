@@ -4,15 +4,15 @@ class game {
         this.deck = deck;
         this.piles = piles;
         this.id = 0;
-	this.current_id = current_id;
+	    this.current_id = current_id;
         this.render_calls = []
         this.card_definitions = []
-	this.default_hand_params = {
-		"x" : x
-		"y" : y
-		"offset_angle" : offset_angle
-		"offset_final_distance" : offset_final_distance
-	}
+	    this.default_hand_params = {
+		    "x" : x,
+		    "y" : y,
+		    "offset_angle" : offset_angle,
+		    "offset_final_distance" : offset_final_distance
+	    }
     }
     find_card_by_id(card_id) {
         for (let i = 0; i < this.deck.length; i++) {        //for every card
@@ -114,7 +114,7 @@ class game {
 	this.create_deck(this.piles[0].id);
     }
     call_for_render(render_owner) {
-        if ()
+        
     }
 }
 class renderInfo {
