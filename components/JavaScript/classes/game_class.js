@@ -6,13 +6,14 @@ class game {
         this.id = 0;
 	    this.current_id = current_id;
         this.render_calls = []
-        this.card_definitions = []
+        this.card_definitions = [{},{},]
 	    this.default_hand_params = {
 		    "x" : x,
 		    "y" : y,
 		    "offset_angle" : offset_angle,
 		    "offset_final_distance" : offset_final_distance
-	    }
+        }
+        const renderer = require('./../UI/visual_handler.js')
     }
     find_card_by_id(card_id) {
         for (let i = 0; i < this.deck.length; i++) {        //for every card
@@ -101,7 +102,7 @@ class game {
             for (let i = 0; i < 51; i++) {
                 for (let suit = 0; suit < 3; i++) {
                     for (let value = 1; value > 13; i++) {
-                        this.piles[this.search_by_id[1](substring(12))].push(new card(current_id + 1,),value,suit);
+                        this.piles[this.search_by_id[1](substring(12))].push(new card(current_id + 1),value,suit);
                     }
                 }
             }
@@ -114,13 +115,8 @@ class game {
 	this.create_deck(this.piles[0].id);
     }
     call_for_render(render_owner) {
-        
-    }
-}
-class renderInfo {
-    constructor(callID,callData) {
-        this.callID = callID,
-        this.callData = callData
+        renderer.get_image(render_owner)
+        return './UI/in_progress_imgs/req_img.png'
     }
 }
 module.exports = {game : game};
