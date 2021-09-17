@@ -1,5 +1,6 @@
-const game = require("./components/game_class.js");
-let game = new game();
+const Game = require('./../game/game_class.js');
+const game = new Game();
+
 module.exports = {
     game:game,
     card:card,

@@ -1,0 +1,25 @@
+{
+  "name": "discord_card_bot",
+  "version": "1.0.0",
+  "description": "A card and tabletop game engine for discord.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArinZBryan/NodeJS-Card-Game-Foundation-with-Discord.js-frontend.git"
+  },
+  "keywords": [
+    "discord.js",
+    "game",
+    "javascript",
+    "sharp"
+  ],
+  "author": "Arin Bryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArinZBryan/NodeJS-Card-Game-Foundation-with-Discord.js-frontend/issues"
+  },
+  "homepage": "https://github.com/ArinZBryan/NodeJS-Card-Game-Foundation-with-Discord.js-frontend#readme"
+}
