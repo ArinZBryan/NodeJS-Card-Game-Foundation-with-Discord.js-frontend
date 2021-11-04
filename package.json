@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/ArinZBryan/NodeJS-Card-Game-Foundation-with-Discord.js-frontend/issues"
   },
-  "homepage": "https://github.com/ArinZBryan/NodeJS-Card-Game-Foundation-with-Discord.js-frontend#readme"
+  "homepage": "https://github.com/ArinZBryan/NodeJS-Card-Game-Foundation-with-Discord.js-frontend#readme",
+  "dependencies": {
+    "discord.js": "^13.2.0"
+  }
 }
