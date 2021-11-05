@@ -21,8 +21,8 @@ client.once('ready', () => {
     let target = client.channels.cache.get('792073130389667906')
     target.send({content :"ready"})
     let style = "PRIMARY"
-    let label = "no"
-    let id = "yes"
+    let label = "test"
+    let id = "testStartup"
     const mes = new MessageActionRow().addComponents(
         new MessageButton()
             .setStyle(`${style}`)
@@ -48,11 +48,11 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.on('interactionCreate', async (interaction) => {
-    if (interaction.customId == 'uno') {
-        interaction.reply('Kill Arin')
+    if (interaction.customId == 'testStartup') {
+        interaction.reply('')
     }
     if (interaction.customId == 'dos') {
-        interaction.reply('Kill Arin')
+        interaction.reply('I Liiiiiiiive!')
     }
     if (interaction.customId == 'tres') {
         interaction.reply('Kill Arin')
