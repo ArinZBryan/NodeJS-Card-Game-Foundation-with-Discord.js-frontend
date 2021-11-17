@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/ArinZBryan/NodeJS-Card-Game-Foundation-with-Discord.js-frontend#readme",
   "dependencies": {
-    "discord.js": "^13.2.0"
+    "discord.js": "^13.3.1"
   }
 }
