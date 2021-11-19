@@ -1,6 +1,6 @@
 const Game = require('./../game/game_class.js');
 const game = new Game();
-
+const handler = require('./../../index.js')
 module.exports = {
     game:game,
     card:card,
@@ -8,3 +8,4 @@ module.exports = {
     player:player,
     elementsToRender:elementsToRender
 };
+
