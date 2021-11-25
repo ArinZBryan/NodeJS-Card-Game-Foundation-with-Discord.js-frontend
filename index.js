@@ -165,6 +165,11 @@ client.on('interactionCreate', async (interaction) => {
         interaction.reply(`${interaction.values}`)
     }
 })
+client.on('messageCreate', (message) => {
+    if(message.content.toLowerCase().charAt(0)){
+        message.channel.send('Hello there!');
+    }
+});
 
 // GLOBAL VARS -------------------------------------------------------
 const Ids = []
