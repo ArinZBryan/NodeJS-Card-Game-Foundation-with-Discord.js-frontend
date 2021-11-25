@@ -24,16 +24,6 @@ client.once('ready', () => {
 });
 
 
-// Basic text command handler  -------------------------------------------------------
-client.on('interactionCreate', async (interaction) => {
-	if (!interaction.isCommand()) return;
-	const { commandName: command } = interaction;
-
-	if (command === 'start') {
-		
-	}
-});
-
 // Function to make a new MessageActionRow of only buttons -------------------------------------------------------
 // Up to five can be created in one function call, this is a discord.js limitation
 function newButton(args = [
@@ -165,8 +155,10 @@ client.on('interactionCreate', async (interaction) => {
         interaction.reply(`${interaction.values}`)
     }
 })
+
+// Basic text command handler  -------------------------------------------------------
 client.on('messageCreate', (message) => {
-    if(message.content.toLowerCase().charAt(0)){
+    if(message.content.toLowerCase().charAt(0) == prefix){
         message.channel.send('Hello there!');
     }
 });
