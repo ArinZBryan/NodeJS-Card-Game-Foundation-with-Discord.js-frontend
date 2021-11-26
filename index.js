@@ -159,12 +159,26 @@ client.on('interactionCreate', async (interaction) => {
 // Basic text command handler  -------------------------------------------------------
 client.on('messageCreate', (message) => {
     if(message.content.toLowerCase().charAt(0) == prefix){
-        message.channel.send('Hello there!');
+		var command = message.content.toLowerCase().splice(0,1)
+		for (let i = 0; i > textCommands.length; i++) {
+			if (command == textCommands[i].name) {
+				var argCount = textCommands[i].args.length
+				var callback = textCommands[i].callback	
+			}
+		}
+		try {var args = command.split(' ')} 
+		catch(err) {
+			console.log('no args supplied')
+			if (argCount != 0) {target.send(content : `Args required for that command: `${args}`)}
+		}			
+        callback()
+	
     }
 });
 
 // GLOBAL VARS -------------------------------------------------------
 const Ids = []
+const textCommands = [] // [{name : "ping", args : [a,b,c,d], callback : function() => {}}]
 
 
 
