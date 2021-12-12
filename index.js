@@ -37,11 +37,11 @@ client.on('interactionCreate', async (interaction) => {
 // Function to make a new MessageActionRow of only buttons -------------------------------------------------------
 // Up to five can be created in one function call, this is a discord.js limitation
 function newButton(args = [
-    {style : style, customId : customId, label : label, disabeled : disabled}, //required args
-    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null}, //optional args
-    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null},
-    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null},
-    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null},
+    {style : style, customId : customId, label : label, disabeled : disabled, oneTime : oneTime}, //required args
+    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null, oneTime : oneTime = false}, //optional args
+    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null, oneTime : oneTime = false},
+    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null, oneTime : oneTime = false},
+    {style : style = null, customId : customId = null, label : label = null, disabled : disabled = null, oneTime : oneTime = false},
     ], target) {
 
     const ActionRows = [];
@@ -118,14 +118,13 @@ function newButton(args = [
                     break
             }
 
-        Ids.push(args[i].customId) //Push CustomId to handler
+        Ids.push([args[i].customId, args[i].oneTime]) //Push CustomId to handler
         
         }
     }
     target.send({content :"⠀", components : ActionRows})
     
 }
-
 function newSelectMenu( 
     args = {customId: customId, placeholder: placeholder, minvalues: minvalues, maxvalues: maxvalues, options: options =[{label: label, description : description, value : value},{label: label, description : description, value : value}]}
     , target)
@@ -155,9 +154,9 @@ client.on('interactionCreate', async (interaction) => {
         
             for (let i = 0; i < Ids.length; i++) {
                 if (interaction.customId = Ids[i]) {
-                    
+                    Ids[i][2]()
                     interaction.reply({content :`${interaction.customId}`})
-                    
+                    if (Ids[i][1] == true) {Ids.splice(i,1)}
                 }
             }  
          
