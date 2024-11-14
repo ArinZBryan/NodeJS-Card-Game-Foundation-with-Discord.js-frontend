@@ -1,5 +1,8 @@
+alert("only works on browser")
 const game = require("./components/game_class.js");
 let game = new game();
+
+
 module.exports = {
     game:game,
     card:card,
